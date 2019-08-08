@@ -1,0 +1,12 @@
+
+CREATE DATABASE note_app;
+
+CREATE TABLE note_app (
+	NoteID INT AUTO_INCREMENT NOT NULL,
+	Title VARCHAR (32) NOT NULL,
+	Date DATE NULL,
+	Note TEXT,
+	PRIMARY KEY (noteID)
+	);
+	
+
