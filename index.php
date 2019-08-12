@@ -1,46 +1,24 @@
 <?php
-    require 'db_connection.php';
-    $conn = OpenCon();
-    //echo "Connected Successfully";
 
-    $title = $_GET["Title"];
-    $note = $_GET["Note"];
+require 'db_connection.php';
 
-    // echo $title, $note;
+ 
+// Attempt insert query execution
+try{
+// Prepare an insert statement
+    $sql = "INSERT INTO note_app (Title, Note) VALUES (:Title, :Note)";
+    $stmt = $pdo->prepare($sql);
 
-    $sql = "INSERT INTO note_app (Title, Note)
-    VALUES ($title, $note)";
-
-        if($title) {
-        $conn->query($sql);
-        }
-        if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
-        } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-/*
-    if ($title){
-        $sql = INSERT INTO note_app (Title, Note) VALUES ($title, $note);
-
-        if($conn->query($sql) === TRUE) {
-            echo "New noooote!";
-        }; 
-        else{
-            echo "baaaaaadd man";
-        };
-    }*/
-    
-   
-    
+// Bind parameters to statement
+    $stmt->bindParam(':Title', $_GET['Title'], PDO::PARAM_STR);
+    $stmt->bindParam(':Note', $_POST['Note'], PDO::PARAM_STR);
 
 
-    
-     
-    // CloseCon($conn);
-
-     
-
-
-
+// Execute the prepared statement
+    $stmt->execute();
+    echo "Records inserted successfully.";
+    } catch(PDOException $e){
+        die("ERROR: Could not prepare/execute query: $sql. " . $e->getMessage());
+    }
+ 
 ?>
