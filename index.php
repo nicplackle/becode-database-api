@@ -72,6 +72,8 @@
       </li>
       <li><a             href="update.php"><strong>Update</strong></a> - Edit a note
       </li>
+      <li><a       href="delete.php"><strong>Delete</strong></a> - Delete a note
+      </li>
     </ul>
     <?php require "templates/footer.php"; ?>
 
