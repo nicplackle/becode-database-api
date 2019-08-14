@@ -1,9 +1,14 @@
 <?php
-   if (isset($_POST['submit'])) {
+
+    require "config.php";
+    require "common.php";
+
+    // function to query information based on a parameter: in this case, title
+
+    if (isset($_POST['submit'])) {
+       if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
+
     try {
-      require "config.php";
-      require "common.php";
-  
       $connection = new PDO($dsn, $username, $password, $options);
         // fetch data code will go her  
         $sql = "SELECT * FROM note_app_v2 WHERE title = :title";   
@@ -61,7 +66,7 @@ if (isset($_POST['submit'])) {
 } ?>
 
 <h2>Find note by title</h2>
-
+<input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
 <form method="post">
     <label for="title">Title</label>
     <input type="text" id="title" name="title">

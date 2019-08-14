@@ -1,15 +1,19 @@
 <?php
 
-// Delete a user
-
 require "config.php";
 require "common.php";
 
-if (isset($_GET["id"])) {
+$success = null;
+
+if (isset($_POST['submit'])) {
+  if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
+
+// Delete a user
+
   try {
     $connection = new PDO($dsn, $username, $password, $options);
 
-    $id = $_GET["id"];
+    $id = $_POST["submit"];
 
     $sql = "DELETE FROM note_app_v2 WHERE id = :id";
 
@@ -42,7 +46,8 @@ try {
 <h2>Delete notes</h2>
 
 <?php if ($success) echo $success; ?>
-
+<form method="post">
+  <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
 <table>
   <thead>
     <tr>
@@ -60,11 +65,12 @@ try {
       <td><?php echo escape($row["title"]); ?></td>
       <td><?php echo escape($row["note"]); ?></td>
       <td><?php echo escape($row["date"]); ?> </td>
-      <td><a href="delete.php?id=<?php echo escape($row["id"]); ?>">Delete</a></td>
+      <td><button type="submit" name="submit" value="<?php echo escape($row["id"]); ?>">Delete<button></td>
     </tr>
   <?php endforeach; ?>
   </tbody>
 </table>
+</form>
 
 <a href="index.php">Back to home</a>
 
@@ -72,31 +78,3 @@ try {
 
 
 
-
-<?php
-// old test
-// $servername = "localhost";
-// $username = "admin";
-// $password = "ztm5lyen9Hkk";
-// $dbname = "becode_database_api";
-// 
-// // require 'db_connection.php';
-// 
-// try {
-//     $conn = new PDO// ("mysql:host=$servername;// dbname=$dbname",$username, // $password);
-//     // set the PDO error mode to // exception
-//     $conn->setAttribute// (PDO::ATTR_ERRMODE, // PDO::ERRMODE_EXCEPTION);
-// 
-//     // sql to delete a record
-//     $sql = "DELETE FROM note_app WHERE // Title=' '";
-// 
-//     // use exec() because no results // are returned
-//     $conn->exec($sql);
-//     echo "Record deleted successfully";
-//     }
-// catch(PDOException $e)
-//     {
-//     echo $sql . "<br>" . $e->getMessage// ();
-//     }
-// 
-// $conn = null;

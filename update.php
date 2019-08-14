@@ -1,10 +1,12 @@
 <?php
 
+
+require "config.php";
+require "common.php";
+
 // List all users with a link to edit
 
 try {
-  require "config.php";
-  require "common.php";
 
   $connection = new PDO($dsn, $username, $password, $options);
 

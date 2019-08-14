@@ -1,10 +1,13 @@
 <?php
 
+require "config.php";
+require "common.php";
+
+
 // Use an HTML form to create a new entry in the users table
 
 if (isset($_POST['submit'])) {
-    require "config.php";
-    require "common.php";
+    if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
     try {
         $connection = new PDO($dsn, $username, $password, $options);
@@ -47,6 +50,7 @@ if (isset($_POST['submit'])) {
 <h2>Create a Note</h2>
 
 <form method="post">
+<input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
     	<label for="title">Title</label>
     	<input type="text" name="title" id="title">
     	<label for="note">Note</label>
