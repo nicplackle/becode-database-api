@@ -70,8 +70,10 @@
       <li>
         <a href="read.php"><strong>Read</strong></a> - Find a note
       </li>
+      <li><a             href="update.php"><strong>Update</strong></a> - Edit a note
+      </li>
     </ul>
-    <?php include "templates/footer.php"; ?>
+    <?php require "templates/footer.php"; ?>
 
   </body>
 </html>

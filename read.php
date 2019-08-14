@@ -1,8 +1,8 @@
 <?php
    if (isset($_POST['submit'])) {
     try {
-      require "../config.php";
-      require "../common.php";
+      require "config.php";
+      require "common.php";
   
       $connection = new PDO($dsn, $username, $password, $options);
         // fetch data code will go her  
