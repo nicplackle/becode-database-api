@@ -10,7 +10,7 @@
 
     try {
       $connection = new PDO($dsn, $username, $password, $options);
-        // fetch data code will go her  
+        // fetch data code will go here  
         $sql = "SELECT * FROM note_app_v2 WHERE title = :title";   
         // put POST into a variable
         $title = $_POST['title'];
