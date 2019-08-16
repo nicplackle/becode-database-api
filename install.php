@@ -1,10 +1,7 @@
 <?php 
 
-
 // Open a connection via PDO to create a
 // table with structure.
-
-
 
   require "config.php";
 

@@ -64,8 +64,8 @@ try {
       <td><?php echo escape($row["id"]); ?></td>
       <td><?php echo escape($row["title"]); ?></td>
       <td><?php echo escape($row["note"]); ?></td>
-      <td><?php echo escape($row["date"]); ?> </td>
-      <td><button type="submit" name="submit" value="<?php echo escape($row["id"]); ?>">Delete<button></td>
+      <td><?php echo escape($row["date"]); ?></td>
+      <td><button type="submit" name="submit" value="<?php echo escape($row["id"]); ?>">Delete</button></td>
     </tr>
   <?php endforeach; ?>
   </tbody>

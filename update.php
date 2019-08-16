@@ -24,6 +24,10 @@ try {
 
 <?php require "templates/header.php"; ?>
 
+<!-- test melding -->
+<?php if (isset($_POST['submit']) && $statement) { ?><?php echo $_POST['title']; ?> Note successfully edited!
+<?php } ?>
+
 <h2>Update users</h2>
 
 <table>
@@ -31,7 +35,7 @@ try {
     <tr>
       <th>#</th>
       <th>Title</th>
-      <th>Note</th>
+    
       <th>Date</th>
       <th>Edit</th>
     </tr>

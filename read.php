@@ -3,10 +3,9 @@
     require "config.php";
     require "common.php";
 
-    // function to query information based on a parameter: in this case, title
+    // function to query information based on a parameter: in this case, 'title'
 
     if (isset($_POST['submit'])) {
-       if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
     try {
       $connection = new PDO($dsn, $username, $password, $options);
@@ -60,8 +59,7 @@ if (isset($_POST['submit'])) {
         </tbody>
        </table>
 
-<?php } else { ?>
-    > No results found for <?php echo escape($_POST['title']); ?>.
+<?php } else { ?>No results found for <?php echo escape($_POST['title']); ?>.
 <?php }
 } ?>
 

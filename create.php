@@ -43,8 +43,7 @@ if (isset($_POST['submit'])) {
 
 <?php require "templates/header.php"; ?>
 
-<?php if (isset($_POST['submit']) && $statement) { ?>
-  > <?php echo $_POST['title']; ?> Note successfully added.
+<?php if (isset($_POST['submit']) && $statement) { ?><?php echo $_POST['title']; ?> Note successfully added!
 <?php } ?>
 
 <h2>Create a Note</h2>
@@ -55,8 +54,8 @@ if (isset($_POST['submit'])) {
     	<input type="text" name="title" id="title">
     	<label for="note">Note</label>
     	<input type="text" name="note" id="note">
-    	<label for="date">Date</label>
-    	<input type="text" name="date" id="date">
+    	<!--<label for="date">Date</label>-->
+    	<!--<input type="text" name="date" id="date">-->
         <!-- button -->
     	<input type="submit" name="submit" value="submit">
     </form>

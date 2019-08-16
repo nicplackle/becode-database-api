@@ -8,7 +8,8 @@ try {
 
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM note_app_v2";
+  // display id and title with JSON request
+  $sql = "SELECT id, title FROM note_app_v2";
 
   $statement = $connection->prepare($sql);
   $statement->execute();
