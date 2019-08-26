@@ -4,8 +4,8 @@
 
 $host       = "localhost";
 $username   = "admin";
-$password   = "ztm5lyen9Hkk";
-$dbname     = "becode_database_api";
+$password   = "7ELkW3j4H2s4zwgk"/*"ztm5lyen9Hkk"*/;
+$dbname     = "note_app";
 $dsn        = "mysql:host=$host;dbname=$dbname"; 
 $options    = array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION

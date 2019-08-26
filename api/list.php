@@ -9,7 +9,7 @@ try {
   $connection = new PDO($dsn, $username, $password, $options);
 
   // display id and title with JSON request
-  $sql = "SELECT id, title FROM note_app_v2";
+  $sql = "SELECT id, title FROM note_app";
 
   $statement = $connection->prepare($sql);
   $statement->execute();

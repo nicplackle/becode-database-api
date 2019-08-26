@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 
       ];      
 
-      $sql = "UPDATE note_app_v2
+      $sql = "UPDATE note_app
             SET id = :id,
               title = :title,
               note = :note,
@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
     $connection = new PDO($dsn, $username, $password, $options);
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM note_app_v2 WHERE id = :id";
+    $sql = "SELECT * FROM note_app WHERE id = :id";
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
     $statement->execute();

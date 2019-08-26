@@ -10,7 +10,7 @@
     $sql = file_get_contents("data/init.sql");
     $connection->exec($sql);
   
-    echo "Table note app v2 created successfully.";
+    echo "Table note app created successfully.";
   } catch(PDOException $error) {
     echo $sql . "<br>" . $error->getMessage();
   }

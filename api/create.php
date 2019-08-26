@@ -26,7 +26,7 @@ if (isset($_POST['title']) && isset($_POST['note'])) {
 
         $sql = sprintf(
             "INSERT INTO %s (%s) VALUES (%s)",
-            "note_app_v2",
+            "note_app",
             implode(", ", array_keys    ($new_note)),
             ":" . implode(", :", array_keys ($new_note))
         );
@@ -34,7 +34,7 @@ if (isset($_POST['title']) && isset($_POST['note'])) {
         $statement = $connection->prepare($sql);
         $statement->execute($new_note);
 
-        $stmt = $connection->prepare("SELECT id, title FROM note_app_v2 WHERE id=?");
+        $stmt = $connection->prepare("SELECT id, title FROM note_app WHERE id=?");
         $stmt->execute([$connection->lastInsertId()]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 

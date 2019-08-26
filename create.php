@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 
         $sql = sprintf(
             "INSERT INTO %s (%s) VALUES (%s)",
-            "note_app_v2",
+            "note_app",
             implode(", ", array_keys    ($new_note)),
             ":" . implode(", :", array_keys ($new_note))
         );

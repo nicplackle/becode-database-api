@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 
     $id = $_POST["submit"];
 
-    $sql = "DELETE FROM note_app_v2 WHERE id = :id";
+    $sql = "DELETE FROM note_app WHERE id = :id";
 
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 try {
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM note_app_v2";
+  $sql = "SELECT * FROM note_app";
 
   $statement = $connection->prepare($sql);
   $statement->execute();

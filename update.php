@@ -10,7 +10,7 @@ try {
 
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM note_app_v2";
+  $sql = "SELECT * FROM note_app";
 
   $statement = $connection->prepare($sql);
   $statement->execute();
